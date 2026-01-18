@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Color Maker</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        background-image: linear-gradient(
+          to right top,
+          #051937,
+          #004d7a,
+          #008793,
+          #00bf72,
+          #a8eb12
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Card */
+      section {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        width: 320px;
+      }
+
+      /* Button container */
+      section div:first-child {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      /* Buttons */
+      button {
+        flex: 1;
+        margin: 0 5px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Copy heading */
+      h2 {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      /* Copy code box */
+      .copyCode {
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        user-select: all;
+        transition: background 0.3s;
+      }
+
+      .copyCode:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <button id="myButton">#051937</button>
+        <button id="myButton2">#008793</button>
+      </div>
+      <h2>Click Here to Copy color</h2>
+      <div class="copyCode">
+        background-image:linear-gradient(to right,
+        rgb(92,145,229),rgb(152,63,198))
+      </div>
+    </section>
+
+    <script>
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+      let copyDiv = document.querySelector(".copyCode");
+      let rgb1 = "#004773";
+      let rgb2 = "#45d524";
+
+      const hexValues = () => {
+        let myHexValue = "0123456789abcdef";
+        let colors = "#";
+        for (let i = 0; i < 6; i++) {
+          colors = colors + myHexValue[Math.floor(Math.random() * 16)];
+        }
+        return colors;
+      };
+
+      const handleButton1 = () => {
+        rgb1 = hexValues();
+        btn1.innerHTML = rgb1;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2});`;
+      };
+      const handleButton2 = () => {
+        rgb2 = hexValues();
+        btn2.innerHTML = rgb2;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1},${rgb2})`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2});`;
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+
+      copyDiv.addEventListener("click", () => {
+        //copy the color in the clipboard
+        navigator.clipboard.writeText(copyDiv.innerText);
+        alert("Text copied to clipboard!");
+      });
+    </script>
+  </body>
+</html>
