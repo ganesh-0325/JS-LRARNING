@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  />
+
+  <title>Digital Watch</title>
+
+  <style>
+    /* =========================
+       RESET DEFAULT STYLES
+       ========================= */
+    * {
+      margin: 0;                /* Remove default margin */
+      padding: 0;               /* Remove default padding */
+      box-sizing: border-box;   /* Include padding in width/height */
+      font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       PAGE BACKGROUND
+       ========================= */
+    body {
+      height: 100vh;            /* Full screen height */
+      background: #3b4156;      /* Dark background color */
+      display: flex;            /* Enable flexbox */
+      align-items: center;      /* Center vertically */
+      justify-content: center;  /* Center horizontally */
+    }
+
+    /* =========================
+       OUTER CONTAINER
+       ========================= */
+    .container {
+      width: 720px;             /* Fixed width */
+      position: relative;       /* Needed for bottom bar */
+    }
+
+    /* =========================
+       WATCH BODY
+       ========================= */
+    .watch {
+      background: #152326;      /* Dark watch background */
+      border: 2px solid #f2ef6c;/* Yellow border */
+      border-radius: 18px;      /* Rounded corners */
+      padding: 20px 30px;       /* Inner spacing */
+      box-shadow:
+        0 0 15px rgba(242,239,108,0.4); /* Glow effect */
+    }
+
+    /* =========================
+       WATCH INNER LAYOUT
+       ========================= */
+    .watch-content {
+      display: flex;            /* Horizontal layout */
+      align-items: center;      /* Vertically center items */
+      height: 90px;             /* Fixed height */
+    }
+
+    /* =========================
+       ICON COLUMN
+       ========================= */
+    .icons {
+      display: flex;
+      flex-direction: column;   /* Icons top to bottom */
+      gap: 12px;                /* Space between icons */
+    }
+
+    .icons i {
+      color: white;             /* Icon color */
+      font-size: 18px;          /* Icon size */
+    }
+
+    /* =========================
+       TIME DISPLAY
+       ========================= */
+    #clock {
+      flex: 1;                  /* Take remaining space */
+      text-align: center;       /* Center text */
+      font-size: 48px;          /* Big font */
+      color: #f2ef6c;           /* Yellow color */
+      letter-spacing: 2px;      /* Space between letters */
+      text-shadow: 0 0 10px #f2ef6c; /* Glow effect */
+    }
+
+    /* =========================
+       BOTTOM GLOW BAR
+       ========================= */
+    .container::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 82%;
+      height: 15px;
+      background: #f2ef6c;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 15px 25px rgba(242,239,108,0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- WATCH STRUCTURE -->
+  <div class="container">
+    <div class="watch">
+      <div class="watch-content">
+
+        <!-- LEFT ICONS -->
+        <div class="icons">
+          <i class="fa-solid fa-clock"></i>
+          <i class="fa-solid fa-stopwatch"></i>
+        </div>
+
+        <!-- TIME DISPLAY -->
+        <div id="clock">--:--:--</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       JAVASCRIPT LOGIC
+       ========================= -->
+  <script>
+    function updateClock() {
+
+      // Get current date and time
+      let now = new Date();
+
+      // Extract hours, minutes, seconds
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      // Decide AM or PM
+      let ampm;
+      if (hours >= 12) {
+        ampm = "PM";
+      } else {
+        ampm = "AM";
+      }
+
+      // Convert 24-hour time to 12-hour format
+      if (hours > 12) {
+        hours = hours - 12;
+      }
+
+      // Midnight case: 0 should be 12
+      if (hours === 0) {
+        hours = 12;
+      }
+
+      // Add leading zero if number is less than 10
+      if (hours < 10) {
+        hours = "0" + hours;
+      }
+
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+
+      if (seconds < 10) {
+        seconds = "0" + seconds;
+      }
+
+      // Display time inside the clock element
+      document.getElementById("clock").innerText =
+        hours + ":" + minutes + ":" + seconds + " " + ampm;
+    }
+
+    // Run immediately when page loads
+    updateClock();
+
+    // Update every 1 second
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
