@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage in js</title>
+    <link rel="stylesheet" href="">
+    <style>
+       /* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #263c86, #fe1924);
+}
+
+/* Container */
+div {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #764ba2;
+    background-color:aquamarine;
+}
+
+/* Individual button colors */
+/* #addBtn {
+    background-color: #4CAF50;
+    color: #ffffff;
+} */
+
+/* #getBtn {
+    background-color: #2196F3;
+    color: #ffffff;
+} */
+
+/* #removeBtn {
+    background-color: #F44336;
+    color: #ffffff;
+} */
+
+/* Hover effects */
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    color: black;
+    background-color: brown;
+}
+
+/* Active click effect */
+button:active {
+    transform: scale(0.98);
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <button id="addBtn">Add data to local storage</button>
+        <button id="getBtn">Get data from local storage</button>
+        <button id="removeBtn">Delete data from local storage</button>
+    </div>
+    <script>
+        // creating the obnject 
+        const studentBioData={
+            firstName:"ganesh",
+            lastName:"Pathak",
+            age:20,
+            address:"Doti",
+            gender:"Male",
+            course:["Java","python","SQL","ERP"]
+
+        };
+        // accessing the html by its id
+        document.getElementById("addBtn").addEventListener("click",()=>{
+            addTodoList();
+
+        });
+
+        document.getElementById("getBtn").addEventListener("click",()=>{
+            getTodoList();
+
+        });
+
+         document.getElementById("removeBtn").addEventListener("click",()=>{
+            removeTodoList();
+        });
+
+        const addTodoList=()=>{
+            localStorage.setItem("objectData",JSON.stringify(studentBioData));
+        };
+
+        const  getTodoList=()=>{
+           const studentDatas= JSON.parse(localStorage.getItem("objectData"));
+           console.log(studentDatas);
+        };
+
+        const removeTodoList=()=>{
+            const deleteData=localStorage.removeItem("objectData");
+            console.log("the deleted data is ",deleteData);
+        };
+
+
+
+    </script>
+    
+</body>
+</html>
