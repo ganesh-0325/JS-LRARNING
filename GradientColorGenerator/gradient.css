@@ -1,0 +1,81 @@
+  
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        background-image: linear-gradient(
+          to right top,
+          #051937,
+          #004d7a,
+          #008793,
+          #00bf72,
+          #a8eb12
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Card */
+      section {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        width: 320px;
+      }
+
+      /* Button container */
+      section div:first-child {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      /* Buttons */
+      button {
+        flex: 1;
+        margin: 0 5px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Copy heading */
+      h2 {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      /* Copy code box */
+      .copyCode {
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        user-select: all;
+        transition: background 0.3s;
+      }
+
+      .copyCode:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    
