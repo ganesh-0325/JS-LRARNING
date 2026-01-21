@@ -40,8 +40,8 @@ console.log(product,price);
 // Use spread operator to fetch all data from array one to array 2 and add further data
 // Log array two
 // const array=[1,2];
-// const array3=[...array,"ganesh","Raj","Pathak"];
-// console.log(array3);
+const array3=[...array,"ganesh","Raj","Pathak"];
+console.log(array3);
 
 // Create user = { username: "admin" }
 // Use spread operator to fetch all data from user to user2 and add further data
