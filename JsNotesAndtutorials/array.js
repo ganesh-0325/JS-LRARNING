@@ -90,10 +90,17 @@ console.log(arr);   //output :[ 'b', 'c', 'd' ] ,,,,  [ 'a' ]
                             
 
 //     Create an array and print all its elements in random order.
-const arry =["ganes","myname","patahk","ktm","mistake"];
+const arry = ["apple", "banana", "orange", "mango"];
+
+const randomOrder = [...arry].sort(() => 0.5 - Math.random());
+console.log(randomOrder);
 
 
 // Create an array and print any three random elements without repetition.
+const array2 = ["apple", "banana", "orange", "mango", "grape"];
+
+const result2 = [...array2].sort(() => 0.5 - Math.random()).slice(0, 3);
+console.log(result);
 
 // Create an array with duplicate values and remove all duplicate elements.
 
