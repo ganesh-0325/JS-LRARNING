@@ -99,6 +99,31 @@ console.log(newProperty);
 
 
 
+               // !  How to Check If an Object Has a Property?
+
+//*  hasOwnProperty() method.
+const person3 = {
+  name: "Alice",
+  age: 30
+};
 
 
+console.log(person3.hasOwnProperty("name")); // true
+console.log(person3.hasOwnProperty("job")); // false
+
+//   another is in operator 
+ console.log("name" in person3);
+
+ //* The third method involves checking if a property is undefined.
+
+ const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020
+};
+
+console.log(car.brand !== undefined); // true
+console.log(car.color !== undefined); // false
+
+//However, this method can give false negatives if a property explicitly has the value undefined.
 
