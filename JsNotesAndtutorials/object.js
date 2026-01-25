@@ -127,3 +127,36 @@ console.log(car.color !== undefined); // false
 
 //However, this method can give false negatives if a property explicitly has the value undefined.
 
+
+//  !How Do You Work with Accessing Properties from Nested Objects and Arrays in Objects?
+
+const person4 = {
+  name: "Alice",
+  age: 30,
+  contact: {
+    email: "alice@example.com",
+    phone: {
+      home: "123-456-7890",
+      work: "098-765-4321"
+    }
+  }
+};
+
+console.log(person4.contact.phone.work); // "098-765-4321"
+
+//** */ You can also use bracket notation, which is particularly useful when property names include spaces or special characters, or when you're using variables to access properties:
+
+// console.log(person['contact']['phone']['work']);
+
+
+// an object containing data in the form of  aray 
+const person5 = {
+  name: "Alice",
+  age: 30,
+  addresses: [
+    { type: "home", street: "123 Main St", city: "Anytown" },
+    { type: "work", street: "456 Market St", city: "Workville" }
+  ]
+};
+// we can access data like this 
+console.log(person5.addresses[0].street);
