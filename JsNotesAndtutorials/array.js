@@ -104,6 +104,7 @@ console.log(result);
 
 // Create an array with duplicate values and remove all duplicate elements.
 
+
 // Create an array and display only the duplicate elements.
 
 // Create an array and count the frequency of each element.
