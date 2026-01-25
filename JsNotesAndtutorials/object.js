@@ -182,3 +182,12 @@ console.log(toObject(null));
 console.log(toObject(true));
 
 console.log(toObject([1, 2, 3]));
+
+//  just a logical question
+
+const arr =[];
+arr[5]=1;
+console.log(arr[0]);
+
+console.log(arr.length);
+
