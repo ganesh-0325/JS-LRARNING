@@ -227,6 +227,7 @@ console.log(biodata);
 
 console.log(biodata["nid information"]);
 
+// Add a function to te object 
 biodata.greet=function(){
   return"my name is ganesh raj pathak";
   
@@ -236,6 +237,27 @@ console.log(biodata);
 
 // We can access the methods like this 
 console.log(biodata.greet());
+
+//! we can add dynamic type in objects  
+
+let idType = "EmployeeID";
+
+const student = {
+  [idType]: "ADSFf4654",
+  sName: "harry",
+  sAge: 20,
+  isStudent: true,
+  section: "A21",
+  intro: function () {
+    console.log(
+      `hey my ${idType} is ${student[idType]} my name is ${student.sName}`
+    );
+  }
+};
+
+student.intro();
+
+
 
 
 
