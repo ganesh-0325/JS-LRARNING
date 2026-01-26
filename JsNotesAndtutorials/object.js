@@ -255,7 +255,47 @@ const student = {
   }
 };
 
-student.intro();
+student.intro();// !UseCase : when we want to get Username  and the value in  react
+
+
+
+//? passed by values and passed by references 
+//? numbers and strings are passed by values  while objects are passed by references
+
+// ? passing by value : a copy of the premitive value is created and passed to the function or assigned to the variable any changes made to the copy not affected the origional value 
+
+let a =12;
+const changedValue=(x)=>(x=30);
+console.log(changedValue(a));
+console.log(a);
+
+// next 
+let IsName ="Ganesh";
+const modiValue =(x)=>(x="ramKumar");
+console.log(modiValue(IsName));
+console.log(IsName);
+
+// * here string and numbers are passed by values 
+
+// ? Passing by references : when passing by references ,a references to the memory location of the object is passed to the function or assigned to a variable .any changes made to the object through this references will affect the original object 
+
+let obj = {
+  id: 1243,
+  hisName: "virat kohli"
+};
+
+let obj1 = obj;   // creates a new object (copy)
+
+obj1.hisName =
+  "Mahendra singh dhoni";
+
+console.log(obj1);
+console.log("main", obj);
+
+
+// *this is called passed by references 
+
+// !if we want to do not change in oyr original content we can use method like object .assign and spread operator (...) for eer let obj1 ={....obj}
 
 
 
