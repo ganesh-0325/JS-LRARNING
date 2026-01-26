@@ -295,8 +295,71 @@ console.log("main", obj);
 
 // *this is called passed by references 
 
-// !if we want to do not change in oyr original content we can use method like object .assign and spread operator (...) for eer let obj1 ={....obj}
+// !if we want to do not change in oyr original content we can use method like object .assign and spread operator (...) for eer let obj1 ={....obj}  or let new=obj.assign({},obj);
 
+
+// comparison by references
+const obj2={name:"ganesh"};
+const obj3={ name:"ganesh"};
+const isEqual =obj2==obj3? true:false;
+console.log(isEqual);
+// it is always gonna be false but when we use passed by references it  will 
+const obj4 =obj2;
+const isEqual2 =obj4==obj2? true:false;
+console.log(isEqual2);
+
+      // Here it will gives to you true
+
+      //! objects useful  methods
+      const product ={
+        id :1,
+        pName : "mobile",
+        brand :"apple",
+        price :120000,
+        stock :60,
+        description:"a apple i phone which  is popular for its performance and its camera quality"
+
+
+      }
+      
+      //? object.keys()
+      let keys =Object.keys(product)
+      console.log(keys);
+      
+      //? Object.values()
+      let values =Object.values(product)
+      console.log(values);
+
+    // ? Object.entries()
+      console.log(Object.entries(product));
+
+      // ? Object.hasOwnProperty()
+      // it check the does it has that property in the objects 
+       console.log(product.hasOwnProperty("pName"));
+       console.log(product.hasOwnProperty("Students"));
+
+// !Object.assign()
+
+ const st1={
+  id1 :1,
+  sub1:"mathematics"
+ };
+const st2={
+  id2 :2,
+  sub2:"chemistry"
+};
+const mergeObj =Object.assign({},st1,st2);
+console.log(mergeObj);
+
+//!  Object.freeze() =>freezes and object and preventing new properties from being added to it and existing properties being modified in simple kei ni changge hunnna change garn khojda 
+
+Object.freeze(product);
+product.id=4;
+console.log(product);
+
+// !##################################
+// **          QUESTIONS
+//? ############################
 
 
 
