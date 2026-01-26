@@ -191,3 +191,55 @@ console.log(arr[0]);
 
 console.log(arr.length);
 
+
+// creating an oject and trying to accessing the elements of the objects
+
+const biodata={
+  name:"ganesh",
+  gender:"Male",
+  nationality:"nepali",
+  dateOfBirth:20620235,
+  Address:"Doti",
+  "nid information":[
+    {
+      nifNumber:12456457567,
+      citNumber:3567576787689
+
+    },{
+      "mother`s name":"Niranjana ddevi pathak",
+      age:55
+    }
+
+  ]
+
+
+}
+console.log(biodata["name"]);
+console.log(biodata.dateOfBirth);
+
+// *now adding the some elements to the objects
+biodata.age=20;
+console.log(biodata);
+// or 
+biodata["father`s name"]="Shankar Raj pathak";
+console.log(biodata);
+
+
+console.log(biodata["nid information"]);
+
+biodata.greet=function(){
+  return"my name is ganesh raj pathak";
+  
+
+}
+console.log(biodata);
+
+// We can access the methods like this 
+console.log(biodata.greet());
+
+
+
+
+
+
+
