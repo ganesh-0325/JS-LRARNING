@@ -24,491 +24,490 @@
 
 // extract list of keys and values inside objects
 // const objkey =Object.keys(personDeatails);
-// const objvalue =Object.value(personDeatails);
+// const objvalue =Object.values(personDeatails);
 
 // console.log(objkey,objvalue);
 
 
 
-//! Bracket notation is more flexible than dot notation because it allows you to use property names that aren't valid JavaScript identifiers
-const oddObject = {
-  "1stProperty": "Hello",
-  "property with spaces": "World"
-};
+// //! Bracket notation is more flexible than dot notation because it allows you to use property names that aren't valid JavaScript identifiers
+// const oddObject = {
+//   "1stProperty": "Hello",
+//   "property with spaces": "World"
+// };
 
-console.log(oddObject["1stProperty"]);  // Hello
-console.log(oddObject["property with spaces"]);  // World
+// console.log(oddObject["1stProperty"]);  // Hello
+// console.log(oddObject["property with spaces"]);  // World
 
-// ! Another advantage of bracket notation is that it allows you to use variables to access properties dynamically:
+// // ! Another advantage of bracket notation is that it allows you to use variables to access properties dynamically:
 
-const person = {
-  name: "Alice",
-  age: 30,
-  city: "Wonderland"
-};
+// const person = {
+//   name: "Alice",
+//   age: 30,
+//   city: "Wonderland"
+// };
 
-let propertyName = "city";
-console.log(person[propertyName]); // Wonderland
-
-
-                //  **How Can You Remove Properties from an Object?
-  const person1 = {
-  name: "Alice",
-  age: 30,
-  job: "Engineer"
-};
-
-delete person1.job;
-
-console.log(person1.job);
+// let propertyName = "city";
+// console.log(person[propertyName]); // Wonderland
 
 
-// !Another way to remove properties is by using destructuring assignment with rest parameters. This approach doesn't actually delete the property, but it creates a new object without the specified properties:
+//                 //  **How Can You Remove Properties from an Object?
+//   const person1 = {
+//   name: "Alice",
+//   age: 30,
+//   job: "Engineer"
+// };
+
+// delete person1.job;
+
+// console.log(person1.job);
 
 
-const person2 = {
-  name: "Bob",
-  age: 25,
-  job: "Designer",
-  city: "New York"
-};
+// // !Another way to remove properties is by using destructuring assignment with rest parameters. This approach doesn't actually delete the property, but it creates a new object without the specified properties:
 
-const { job, city, ...remainingProperties } = person2;
 
-// { name: "Bob", age: 25 }
-console.log(remainingProperties);
+// const person2 = {
+//   name: "Bob",
+//   age: 25,
+//   job: "Designer",
+//   city: "New York"
+// };
 
-//! create an object and then delete the object elements in various ways
-const data ={
-    "my name":"ganesh",
-    address:"Nepal",
-    profession:"student",
-    age:12
-};
+// const { job, city, ...remainingProperties } = person2;
 
-//  let propertyNames="my name";
-//  console.log(data[propertyNames]);
- // ** way 1 to remove 
-// delete data.age;
-// console.log(data);
+// // { name: "Bob", age: 25 }
+// console.log(remainingProperties);
 
-// ** way 2 
+// //! create an object and then delete the object elements in various ways
+// const data ={
+//     "my name":"ganesh",
+//     address:"Nepal",
+//     profession:"student",
+//     age:12
+// };
+
+// //  let propertyNames="my name";
+// //  console.log(data[propertyNames]);
+//  // ** way 1 to remove 
+// // delete data.age;
+// // console.log(data);
+
+// // ** way 2 
  
-const {address,...newProperty}=data; // so from here address will be removed or the new array made named newProperty without address 
-console.log(newProperty);
+// const {address,...newProperty}=data; // so from here address will be removed or the new array made named newProperty without address 
+// console.log(newProperty);
 
 
 
-               // !  How to Check If an Object Has a Property?
+//                // !  How to Check If an Object Has a Property?
 
-//*  hasOwnProperty() method.
-const person3 = {
-  name: "Alice",
-  age: 30
-};
-
-
-console.log(person3.hasOwnProperty("name")); // true
-console.log(person3.hasOwnProperty("job")); // false
-
-//   another is in operator 
- console.log("name" in person3);
-
- //* The third method involves checking if a property is undefined.
-
- const car = {
-  brand: "Toyota",
-  model: "Corolla",
-  year: 2020
-};
-
-console.log(car.brand !== undefined); // true
-console.log(car.color !== undefined); // false
-
-//However, this method can give false negatives if a property explicitly has the value undefined.
+// //*  hasOwnProperty() method.
+// const person3 = {
+//   name: "Alice",
+//   age: 30
+// };
 
 
-//  !How Do You Work with Accessing Properties from Nested Objects and Arrays in Objects?
+// console.log(person3.hasOwnProperty("name")); // true
+// console.log(person3.hasOwnProperty("job")); // false
 
-const person4 = {
-  name: "Alice",
-  age: 30,
-  contact: {
-    email: "alice@example.com",
-    phone: {
-      home: "123-456-7890",
-      work: "098-765-4321"
-    }
-  }
-};
+// //   another is in operator 
+//  console.log("name" in person3);
 
-console.log(person4.contact.phone.work); // "098-765-4321"
+//  //* The third method involves checking if a property is undefined.
 
-//** */ You can also use bracket notation, which is particularly useful when property names include spaces or special characters, or when you're using variables to access properties:
+//  const car = {
+//   brand: "Toyota",
+//   model: "Corolla",
+//   year: 2020
+// };
 
-// console.log(person['contact']['phone']['work']);
+// console.log(car.brand !== undefined); // true
+// console.log(car.color !== undefined); // false
 
-
-// an object containing data in the form of  aray 
-const person5 = {
-  name: "Alice",
-  age: 30,
-  addresses: [
-    { type: "home", street: "123 Main St", city: "Anytown" },
-    { type: "work", street: "456 Market St", city: "Workville" }
-  ]
-};
-// we can access data like this 
-console.log(person5.addresses[0].street);
+// //However, this method can give false negatives if a property explicitly has the value undefined.
 
 
-// practice
+// //  !How Do You Work with Accessing Properties from Nested Objects and Arrays in Objects?
+
+// const person4 = {
+//   name: "Alice",
+//   age: 30,
+//   contact: {
+//     email: "alice@example.com",
+//     phone: {
+//       home: "123-456-7890",
+//       work: "098-765-4321"
+//     }
+//   }
+// };
+
+// console.log(person4.contact.phone.work); // "098-765-4321"
+
+// //** */ You can also use bracket notation, which is particularly useful when property names include spaces or special characters, or when you're using variables to access properties:
+
+// // console.log(person['contact']['phone']['work']);
 
 
-function toObject(value) {
-  if (value === null || value === undefined) {
-    return {};
-  }
-
-  if (typeof value === "object") {
-    return value;
-  }
-
-  return Object(value);
-}
-
-console.log(toObject(null));
-
-console.log(toObject(true));
-
-console.log(toObject([1, 2, 3]));
-
-//  just a logical question
-
-const arr =[];
-arr[5]=1;
-console.log(arr[0]);
-
-console.log(arr.length);
+// // an object containing data in the form of  aray 
+// const person5 = {
+//   name: "Alice",
+//   age: 30,
+//   addresses: [
+//     { type: "home", street: "123 Main St", city: "Anytown" },
+//     { type: "work", street: "456 Market St", city: "Workville" }
+//   ]
+// };
+// // we can access data like this 
+// console.log(person5.addresses[0].street);
 
 
-// creating an oject and trying to accessing the elements of the objects
-
-const biodata={
-  name:"ganesh",
-  gender:"Male",
-  nationality:"nepali",
-  dateOfBirth:20620235,
-  Address:"Doti",
-  "nid information":[
-    {
-      nifNumber:12456457567,
-      citNumber:3567576787689
-
-    },{
-      "mother`s name":"Niranjana ddevi pathak",
-      age:55
-    }
-
-  ]
+// // practice
 
 
-}
-console.log(biodata["name"]);
-console.log(biodata.dateOfBirth);
+// function toObject(value) {
+//   if (value === null || value === undefined) {
+//     return {};
+//   }
 
-// *now adding the some elements to the objects
-biodata.age=20;
-console.log(biodata);
-// or 
-biodata["father`s name"]="Shankar Raj pathak";
-console.log(biodata);
+//   if (typeof value === "object") {
+//     return value;
+//   }
+
+//   return Object(value);
+// }
+
+// console.log(toObject(null));
+
+// console.log(toObject(true));
+
+// console.log(toObject([1, 2, 3]));
+
+// //  just a logical question
+
+// const arr =[];
+// arr[5]=1;
+// console.log(arr[0]);
+
+// console.log(arr.length);
 
 
-console.log(biodata["nid information"]);
+// // creating an oject and trying to accessing the elements of the objects
 
-// Add a function to te object 
-biodata.greet=function(){
-  return"my name is ganesh raj pathak";
+// const biodata={
+//   name:"ganesh",
+//   gender:"Male",
+//   nationality:"nepali",
+//   dateOfBirth:20620235,
+//   Address:"Doti",
+//   "nid information":[
+//     {
+//       nifNumber:12456457567,
+//       citNumber:3567576787689
+
+//     },{
+//       "mother`s name":"Niranjana ddevi pathak",
+//       age:55
+//     }
+
+//   ]
+
+
+// }
+// console.log(biodata["name"]);
+// console.log(biodata.dateOfBirth);
+
+// // *now adding the some elements to the objects
+// biodata.age=20;
+// console.log(biodata);
+// // or 
+// biodata["father`s name"]="Shankar Raj pathak";
+// console.log(biodata);
+
+
+// console.log(biodata["nid information"]);
+
+// // Add a function to te object 
+// biodata.greet=function(){
+//   return"my name is ganesh raj pathak";
   
 
-}
-console.log(biodata);
+// }
+// console.log(biodata);
 
-// We can access the methods like this 
-console.log(biodata.greet());
+// // We can access the methods like this 
+// console.log(biodata.greet());
 
-//! we can add dynamic type in objects  
+// //! we can add dynamic type in objects  
 
-let idType = "EmployeeID";
+// let idType = "EmployeeID";
 
-const student = {
-  [idType]: "ADSFf4654",
-  sName: "harry",
-  sAge: 20,
-  isStudent: true,
-  section: "A21",
-  intro: function () {
-    console.log(
-      `hey my ${idType} is ${student[idType]} my name is ${student.sName}`
-    );
-  }
-};
+// const student = {
+//   [idType]: "ADSFf4654",
+//   sName: "harry",
+//   sAge: 20,
+//   isStudent: true,
+//   section: "A21",
+//   intro: function () {
+//     console.log(
+//       `hey my ${idType} is ${student[idType]} my name is ${student.sName}`
+//     );
+//   }
+// };
 
-student.intro();// !UseCase : when we want to get Username  and the value in  react
+// student.intro();// !UseCase : when we want to get Username  and the value in  react
 
 
 
-//? passed by values and passed by references 
-//? numbers and strings are passed by values  while objects are passed by references
+// //? passed by values and passed by references 
+// //? numbers and strings are passed by values  while objects are passed by references
 
 // ? passing by value : a copy of the premitive value is created and passed to the function or assigned to the variable any changes made to the copy not affected the origional value 
 
-let a =12;
-const changedValue=(x)=>(x=30);
-console.log(changedValue(a));
-console.log(a);
+// let a =12;
+// const changedValue=(x)=>(x=30);
+// console.log(changedValue(a));
+// console.log(a);
 
-// next 
-let IsName ="Ganesh";
-const modiValue =(x)=>(x="ramKumar");
-console.log(modiValue(IsName));
-console.log(IsName);
+ //! next 
+// let IsName ="Ganesh";
+// const modiValue =(x)=>(x="ramKumar");
+// console.log(modiValue(IsName));
+// console.log(IsName);
 
 // * here string and numbers are passed by values 
 
-// ? Passing by references : when passing by references ,a references to the memory location of the object is passed to the function or assigned to a variable .any changes made to the object through this references will affect the original object 
+ // ? Passing by references : when passing by references ,a references to the memory location of the object is passed to the function or assigned to a variable .any changes made to the object through this references will affect the original object 
 
-let obj = {
-  id: 1243,
-  hisName: "virat kohli"
-};
+// let obj = {
+//   id: 1243,
+//   hisName: "virat kohli"
+// };
 
-let obj1 = obj;   // creates a new object (copy)
+// let obj1 = obj;   // creates a new object (copy)
 
-obj1.hisName =
-  "Mahendra singh dhoni";
+// obj1.hisName =
+//   "Mahendra singh dhoni";
 
-console.log(obj1);
-console.log("main", obj);
-
-
-// *this is called passed by references 
-
-// !if we want to do not change in oyr original content we can use method like object .assign and spread operator (...) for eer let obj1 ={....obj}  or let new=obj.assign({},obj);
+// console.log(obj1);
+// console.log("main", obj);
 
 
-// comparison by references
-const obj2={name:"ganesh"};
-const obj3={ name:"ganesh"};
-const isEqual =obj2==obj3? true:false;
-console.log(isEqual);
-// it is always gonna be false but when we use passed by references it  will 
-const obj4 =obj2;
-const isEqual2 =obj4==obj2? true:false;
-console.log(isEqual2);
+ // *this is called passed by references 
 
-      // Here it will gives to you true
-
-      //! objects useful  methods
-      const product ={
-        id :1,
-        pName : "mobile",
-        brand :"apple",
-        price :120000,
-        stock :60,
-        description:"a apple i phone which  is popular for its performance and its camera quality"
+// !if we want to do not change in our original content we can use method like object .assign and spread operator (...) for eer let obj1 ={....obj}  or let new=obj.assign({},obj);
 
 
-      }
+ // comparison by references
+
+// const obj2={name:"ganesh"};
+// const obj3={ name:"ganesh"};
+// const isEqual =obj2==obj3? true:false;
+// console.log(isEqual);
+
+ // it is always gonna be false but when we use passed by references it  will 
+
+// const obj4 =obj2;
+// const isEqual2 =obj4==obj2? true:false;
+// console.log(isEqual2);
+
+       // Here it will gives to you true
+
+//       //! objects useful  methods
+//       const product ={
+//         id :1,
+//         pName : "mobile",
+//         brand :"apple",
+//         price :120000,
+//         stock :60,
+//         description:"a apple i phone which  is popular for its performance and its camera quality"
+
+
+//       }
       
-      //? object.keys()
-      let keys =Object.keys(product)
-      console.log(keys);
+//       //? object.keys()
+//       let keys =Object.keys(product)
+//       console.log(keys);
       
       //? Object.values()
-      let values =Object.values(product)
-      console.log(values);
+//       let values =Object.values(product)
+//       console.log(values);
 
     // ? Object.entries()
-      console.log(Object.entries(product));
+//       console.log(Object.entries(product));
 
-      // ? Object.hasOwnProperty()
-      // it check the does it has that property in the objects 
-       console.log(product.hasOwnProperty("pName"));
-       console.log(product.hasOwnProperty("Students"));
+     // ? Object.hasOwnProperty()
+       // it check the does it has that property in the objects 
+//        console.log(product.hasOwnProperty("pName"));
+//        console.log(product.hasOwnProperty("Students"));
 
 // !Object.assign()
 
- const st1={
-  id1 :1,
-  sub1:"mathematics"
- };
-const st2={
-  id2 :2,
-  sub2:"chemistry"
-};
-const mergeObj =Object.assign({},st1,st2);
-console.log(mergeObj);
+//  const st1={
+//   id1 :1,
+//   sub1:"mathematics"
+//  };
+// const st2={
+//   id2 :2,
+//   sub2:"chemistry"
+// };
+// const mergeObj =Object.assign({},st1,st2);
+// console.log(mergeObj);
 
-//!  Object.freeze() =>freezes and object and preventing new properties from being added to it and existing properties being modified in simple kei ni changge hunnna change garn khojda 
+// //!  Object.freeze() =>freezes and object and preventing new properties from being added to it and existing properties being modified in simple kei ni changge hunnna change garn khojda 
 
-Object.freeze(product);
-product.id=4;
-console.log(product);
-
+// Object.freeze(product);
+// product.id=4;
+// console.log(product);
 // !##################################
 // **          QUESTIONS
-//? ############################
+ //? ############################
 
 
 
-  // !!!!!In this workshop, you will create a recipe tracker using JavaScript objects.
+  // !In this workshop, you will create a recipe tracker using JavaScript objects.
 
 
-const recipes = [];
+// const recipes = [];
 
-const recipe1 = {
-  name: "Spaghetti Carbonara",
-  ingredients: ["spaghetti", "Parmesan cheese", "pancetta", "black pepper"],
-  cookingTime: 22,
-  totalIngredients: null,
-  difficultyLevel: ""
-};
+// const recipe1 = {
+//   name: "Spaghetti Carbonara",
+//   ingredients: ["spaghetti", "Parmesan cheese", "pancetta", "black pepper"],
+//   cookingTime: 22,
+//   totalIngredients: null,
+//   difficultyLevel: ""
+// };
 
-const recipe2 = {
-  name: "Chicken Curry",
-  ingredients: ["chicken breast", "coconut milk", "curry powder", "onion", "garlic"],
-  cookingTime: 42,
-  totalIngredients: null,
-  difficultyLevel: ""
-};
+// const recipe2 = {
+//   name: "Chicken Curry",
+//   ingredients: ["chicken breast", "coconut milk", "curry powder", "onion", "garlic"],
+//   cookingTime: 42,
+//   totalIngredients: null,
+//   difficultyLevel: ""
+// };
 
-const recipe3 = {
-  name: "Vegetable Stir Fry",
-  ingredients: ["broccoli", "carrot", "bell pepper"],
-  cookingTime: 15,
-  totalIngredients: null,
-  difficultyLevel: ""
-};
+// const recipe3 = {
+//   name: "Vegetable Stir Fry",
+//   ingredients: ["broccoli", "carrot", "bell pepper"],
+//   cookingTime: 15,
+//   totalIngredients: null,
+//   difficultyLevel: ""
+// };
 
-recipes.push(recipe1, recipe2, recipe3);
+// recipes.push(recipe1, recipe2, recipe3);
 
-function getTotalIngredients(ingredients) {
-  return ingredients.length;
-}
+// function getTotalIngredients(ingredients) {
+//   return ingredients.length;
+// }
 
-function getDifficultyLevel(cookingTime) {
-  if (cookingTime <= 30) {
-    return "easy";
-  } else if (cookingTime <= 60) {
-    return "medium";
-  } else {
-    return "hard";
-  }
-}
+// function getDifficultyLevel(cookingTime) {
+//   if (cookingTime <= 30) {
+//     return "easy";
+//   } else if (cookingTime <= 60) {
+//     return "medium";
+//   } else {
+//     return "hard";
+//   }
+// }
 
-const recipe1TotalIngredients = getTotalIngredients(recipe1.ingredients);
-console.log(recipe1TotalIngredients);
+// const recipe1TotalIngredients = getTotalIngredients(recipe1.ingredients);
+// console.log(recipe1TotalIngredients);
 
-const recipe1DifficultyLevel = getDifficultyLevel(recipe1.cookingTime);
-console.log(recipe1DifficultyLevel);
+// const recipe1DifficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+// console.log(recipe1DifficultyLevel);
 
-recipe1.totalIngredients = getTotalIngredients(recipe1.ingredients);
-recipe1.difficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+// recipe1.totalIngredients = getTotalIngredients(recipe1.ingredients);
+// recipe1.difficultyLevel = getDifficultyLevel(recipe1.cookingTime);
 
-recipe2.totalIngredients = getTotalIngredients(recipe2.ingredients);
-recipe2.difficultyLevel = getDifficultyLevel(recipe2.cookingTime);
+// recipe2.totalIngredients = getTotalIngredients(recipe2.ingredients);
+// recipe2.difficultyLevel = getDifficultyLevel(recipe2.cookingTime);
 
-recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
-recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
+// recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
+// recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
 
-console.log(recipes);
+// console.log(recipes);
   
 
-/*** Build a Quiz Game
-Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+// /*** Build a Quiz Game
+// Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
 
-User Stories:
+// User Stories:
 
-You should create an array named questions.
-The questions array should contain at least five objects, each having the keys category, question, choices, and answer.
-The category key should have the value of a string representing a question category.
-The question key should have the value of a string representing a question.
-The choices key should have the value of an array containing three strings, which are alternative answers to the question.
-The answer key should have the value of a string, representing the correct answer to the question. Also, the value of answer should be included in the choices array.
-You should have a function named getRandomQuestion that takes an array of questions as a parameter and returns a random question object from the array
-You should have a function named getRandomComputerChoice that takes the array of the available choices as a parameter, and returns a random answer to the selected question.
-You should have a function named getResults that takes the question object as the first parameter and the computer's choice as the second parameter. The function should return The computer's choice is correct! if the answer is correct. Otherwise, it returns The computer's choice is wrong. The correct answer is: <correct-answer>, where <correct-answer> is the value of the correct answer to the chosen question.*/
-
-
-const questions = [
-  {
-    category: "JavaScript",
-    question: "Which keyword is used to declare a constant in JavaScript?",
-    choices: ["var", "let", "const"],
-    answer: "const"
-  },
-  {
-    category: "HTML",
-    question: "Which HTML tag is used to create a hyperlink?",
-    choices: ["<a>", "<link>", "<href>"],
-    answer: "<a>"
-  },
-  {
-    category: "CSS",
-    question: "Which CSS property is used to change text color?",
-    choices: ["font-style", "color", "background-color"],
-    answer: "color"
-  },
-  {
-    category: "Programming",
-    question: "Which data type stores true or false values?",
-    choices: ["String", "Boolean", "Number"],
-    answer: "Boolean"
-  },
-  {
-    category: "Web",
-    question: "Which protocol is used to transfer web pages?",
-    choices: ["FTP", "HTTP", "SMTP"],
-    answer: "HTTP"
-  }
-];
-
-const getRandomQuestion =(question)=>{
-  const randomQuestion =Math.floor(Math.random()*question.length);
-  return question[randomQuestion];
-
-};
-const getRandomComputerChoice  =(available_choices)=>{
-  const randomAns =Math.floor(Math.random()*available_choices.length);
-  return available_choices[randomAns];
-
-};
-const getResults=(first ,second)=>{
-  if(first.answer ===second ){
-    return "The computer's choice is correct!"
-  }else{
-    return `The computer's choice is wrong. The correct answer is: ${first.answer}`
-  }
-
-};
-const randomQuestion = getRandomQuestion(questions);
-
-// 2. Get a random computer choice from that question
-const computerChoice = getRandomComputerChoice(randomQuestion.choices);
-
-// 3. Get the result
-const result = getResults(randomQuestion, computerChoice);
-
-// 4. Display everything
-console.log("Category:", randomQuestion.category);
-console.log("Question:", randomQuestion.question);
-console.log("Choices:", randomQuestion.choices.join(", "));
-console.log("Computer chose:", computerChoice);
-console.log("Result:", result);
+// You should create an array named questions.
+// The questions array should contain at least five objects, each having the keys category, question, choices, and answer.
+// The category key should have the value of a string representing a question category.
+// The question key should have the value of a string representing a question.
+// The choices key should have the value of an array containing three strings, which are alternative answers to the question.
+// The answer key should have the value of a string, representing the correct answer to the question. Also, the value of answer should be included in the choices array.
+// You should have a function named getRandomQuestion that takes an array of questions as a parameter and returns a random question object from the array
+// You should have a function named getRandomComputerChoice that takes the array of the available choices as a parameter, and returns a random answer to the selected question.
+// You should have a function named getResults that takes the question object as the first parameter and the computer's choice as the second parameter. The function should return The computer's choice is correct! if the answer is correct. Otherwise, it returns The computer's choice is wrong. The correct answer is: <correct-answer>, where <correct-answer> is the value of the correct answer to the chosen question.*/
 
 
+// const questions = [
+//   {
+//     category: "JavaScript",
+//     question: "Which keyword is used to declare a constant in JavaScript?",
+//     choices: ["var", "let", "const"],
+//     answer: "const"
+//   },
+//   {
+//     category: "HTML",
+//     question: "Which HTML tag is used to create a hyperlink?",
+//     choices: ["<a>", "<link>", "<href>"],
+//     answer: "<a>"
+//   },
+//   {
+//     category: "CSS",
+//     question: "Which CSS property is used to change text color?",
+//     choices: ["font-style", "color", "background-color"],
+//     answer: "color"
+//   },
+//   {
+//     category: "Programming",
+//     question: "Which data type stores true or false values?",
+//     choices: ["String", "Boolean", "Number"],
+//     answer: "Boolean"
+//   },
+//   {
+//     category: "Web",
+//     question: "Which protocol is used to transfer web pages?",
+//     choices: ["FTP", "HTTP", "SMTP"],
+//     answer: "HTTP"
+//   }
+// ];
 
+// const getRandomQuestion =(question)=>{
+//   const randomQuestion =Math.floor(Math.random()*question.length);
+//   return question[randomQuestion];
+
+// };
+// const getRandomComputerChoice  =(available_choices)=>{
+//   const randomAns =Math.floor(Math.random()*available_choices.length);
+//   return available_choices[randomAns];
+
+// };
+// const getResults=(first ,second)=>{
+//   if(first.answer ===second ){
+//     return "The computer's choice is correct!"
+//   }else{
+//     return `The computer's choice is wrong. The correct answer is: ${first.answer}`
+//   }
+
+// };
+// const randomQuestion = getRandomQuestion(questions);
+
+ // !2. Get a random computer choice from that question
+// const computerChoice = getRandomComputerChoice(randomQuestion.choices);
+
+//! 3. Get the result
+// const result = getResults(randomQuestion, computerChoice);
+
+//! 4. Display everything
+// console.log("Category:", randomQuestion.category);
+// console.log("Question:", randomQuestion.question);
+// console.log("Choices:", randomQuestion.choices.join(", "));
+// console.log("Computer chose:", computerChoice);
+// console.log("Result:", result);
 
 
