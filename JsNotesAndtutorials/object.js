@@ -442,3 +442,73 @@ You should have a function named getRandomComputerChoice that takes the array of
 You should have a function named getResults that takes the question object as the first parameter and the computer's choice as the second parameter. The function should return The computer's choice is correct! if the answer is correct. Otherwise, it returns The computer's choice is wrong. The correct answer is: <correct-answer>, where <correct-answer> is the value of the correct answer to the chosen question.*/
 
 
+const questions = [
+  {
+    category: "JavaScript",
+    question: "Which keyword is used to declare a constant in JavaScript?",
+    choices: ["var", "let", "const"],
+    answer: "const"
+  },
+  {
+    category: "HTML",
+    question: "Which HTML tag is used to create a hyperlink?",
+    choices: ["<a>", "<link>", "<href>"],
+    answer: "<a>"
+  },
+  {
+    category: "CSS",
+    question: "Which CSS property is used to change text color?",
+    choices: ["font-style", "color", "background-color"],
+    answer: "color"
+  },
+  {
+    category: "Programming",
+    question: "Which data type stores true or false values?",
+    choices: ["String", "Boolean", "Number"],
+    answer: "Boolean"
+  },
+  {
+    category: "Web",
+    question: "Which protocol is used to transfer web pages?",
+    choices: ["FTP", "HTTP", "SMTP"],
+    answer: "HTTP"
+  }
+];
+
+const getRandomQuestion =(question)=>{
+  const randomQuestion =Math.floor(Math.random()*question.length);
+  return question[randomQuestion];
+
+};
+const getRandomComputerChoice  =(available_choices)=>{
+  const randomAns =Math.floor(Math.random()*available_choices.length);
+  return available_choices[randomAns];
+
+};
+const getResults=(first ,second)=>{
+  if(first.answer ===second ){
+    return "The computer's choice is correct!"
+  }else{
+    return `The computer's choice is wrong. The correct answer is: ${first.answer}`
+  }
+
+};
+const randomQuestion = getRandomQuestion(questions);
+
+// 2. Get a random computer choice from that question
+const computerChoice = getRandomComputerChoice(randomQuestion.choices);
+
+// 3. Get the result
+const result = getResults(randomQuestion, computerChoice);
+
+// 4. Display everything
+console.log("Category:", randomQuestion.category);
+console.log("Question:", randomQuestion.question);
+console.log("Choices:", randomQuestion.choices.join(", "));
+console.log("Computer chose:", computerChoice);
+console.log("Result:", result);
+
+
+
+
+
