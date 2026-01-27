@@ -128,6 +128,7 @@
 // console.log(array);
 // Create a variable named city = "Kathmandu" & city2 = "Bhaktapur"
 // Log: "Welcome to Kathmandu & Bhaktapur" using backticks and variable
+
 const city1 ="Kathmandu";
 const city2="Bhaktapur";
 console.log(`${city1} and ${city2}`);

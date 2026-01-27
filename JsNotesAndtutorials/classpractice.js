@@ -2,6 +2,7 @@
 
 // Create a variable named city = "Kathmandu" & city2 = "Bhaktapur"
 // Log: "Welcome to Kathmandu & Bhaktapur" using backticks and variable
+
 const city1 ="Kathmandu";
 const city2="Bhaktapur";
 console.log(`${city1} and ${city2}`);
@@ -9,6 +10,7 @@ console.log(`${city1} and ${city2}`);
 // Create an array [100, 200]
 // Destructure the first and second values
 // Log those destructured values
+
 const array =[100,200];
 const {first ,second} =array;
 console.log(array);

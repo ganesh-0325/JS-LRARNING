@@ -363,8 +363,82 @@ console.log(product);
 
 
 
+  // !!!!!In this workshop, you will create a recipe tracker using JavaScript objects.
 
 
+const recipes = [];
 
+const recipe1 = {
+  name: "Spaghetti Carbonara",
+  ingredients: ["spaghetti", "Parmesan cheese", "pancetta", "black pepper"],
+  cookingTime: 22,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+const recipe2 = {
+  name: "Chicken Curry",
+  ingredients: ["chicken breast", "coconut milk", "curry powder", "onion", "garlic"],
+  cookingTime: 42,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+const recipe3 = {
+  name: "Vegetable Stir Fry",
+  ingredients: ["broccoli", "carrot", "bell pepper"],
+  cookingTime: 15,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+recipes.push(recipe1, recipe2, recipe3);
+
+function getTotalIngredients(ingredients) {
+  return ingredients.length;
+}
+
+function getDifficultyLevel(cookingTime) {
+  if (cookingTime <= 30) {
+    return "easy";
+  } else if (cookingTime <= 60) {
+    return "medium";
+  } else {
+    return "hard";
+  }
+}
+
+const recipe1TotalIngredients = getTotalIngredients(recipe1.ingredients);
+console.log(recipe1TotalIngredients);
+
+const recipe1DifficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+console.log(recipe1DifficultyLevel);
+
+recipe1.totalIngredients = getTotalIngredients(recipe1.ingredients);
+recipe1.difficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+
+recipe2.totalIngredients = getTotalIngredients(recipe2.ingredients);
+recipe2.difficultyLevel = getDifficultyLevel(recipe2.cookingTime);
+
+recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
+recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
+
+console.log(recipes);
+  
+
+/*** Build a Quiz Game
+Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+
+User Stories:
+
+You should create an array named questions.
+The questions array should contain at least five objects, each having the keys category, question, choices, and answer.
+The category key should have the value of a string representing a question category.
+The question key should have the value of a string representing a question.
+The choices key should have the value of an array containing three strings, which are alternative answers to the question.
+The answer key should have the value of a string, representing the correct answer to the question. Also, the value of answer should be included in the choices array.
+You should have a function named getRandomQuestion that takes an array of questions as a parameter and returns a random question object from the array
+You should have a function named getRandomComputerChoice that takes the array of the available choices as a parameter, and returns a random answer to the selected question.
+You should have a function named getResults that takes the question object as the first parameter and the computer's choice as the second parameter. The function should return The computer's choice is correct! if the answer is correct. Otherwise, it returns The computer's choice is wrong. The correct answer is: <correct-answer>, where <correct-answer> is the value of the correct answer to the chosen question.*/
 
 
