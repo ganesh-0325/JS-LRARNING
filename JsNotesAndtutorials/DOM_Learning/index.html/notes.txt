@@ -371,3 +371,37 @@ Because:
 ❌ Performance cost
 
 ❌ Accidental HTML execution
+
+
+                                     ########################
+                              dom methods 
+               #######################
+
+select by id garna => document.geeElementById("idName");=> use garne
+new content add garna innerHTML use garne ra element banaune 
+
+if we have to add the some content to empty div by creating the new elements we use 
+for eg creating an img elements and append the src and atl 
+
+document.createElement("img");
+img.src ="url";
+img.alt="alt text";
+                        then for append 
+main_references.appendCild(variable name)
+
+for eg 
+
+          creating the div in HTML
+<div id="container"></div>
+<script src="index.js"></script>
+
+
+                  in Javascript 
+const container = document.getElementById("container");
+const img = document.createElement("img");
+img.src = "https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg";
+img.alt = "A slice of lasagna on a plate.";
+container.appendChild(img);
+
+
+
