@@ -66,33 +66,73 @@
 
 //! arrofunction  and this 
 
-const studentInfo={
-    username:"ram bahadur",
-    section:"A21",
-    greeting:function(){
-        console.log(` Hello ${this.username},Welcome to you in our college.`);
+// const studentInfo={
+//     username:"ram bahadur",
+//     section:"A21",
+//     greeting:function(){
+//         console.log(` Hello ${this.username},Welcome to you in our college.`);
        
         
         
-    }
+//     }
 
     
-}
-studentInfo.greeting();
+// }
+// studentInfo.greeting();
 
-studentInfo.username="Ganesh Raj";
+// studentInfo.username="Ganesh Raj";
 // const result =studentInfo.greeting();
 
 
-const  result =()=>{
-    const name =" ganesh rajpathak";
-    console.log(`hello ${name}`);
-    console.log(this);   //* this ue garda just yek empty arrray dinx 
+// const  result =()=>{
+//     const name =" ganesh rajpathak";
+//     console.log(`hello ${name}`);
+//     console.log(this);   //* this ue garda just yek empty arrray dinx 
     
     
 
-}
-result();
+// }
+// result();
 
 
+//! if arrow function lai yek line ma run garnu lai implicit return bhaninxa ra yo ma no need to return the return key word  feri parenthesis use garda hamile curly braces use na garda ni hunxa so yo chai react ma dherai kam lagxa object lai return garda pani parenthesis use garinxa
+
+// for eg .
+const objReturn=()=>({name:"Ganesh",isMarried:false});
+
+console.log(objReturn());
+
+//? here we can return our objects inside out arrow function 
+
+
+ 
+const arr =[1,2,3,5,7,9];
+ const result=arr.forEach((num)=>{
+    console.log(num);
+    
+ });
+
+
+
+//  ! immediately invoked  function 
+// ?function lai parenthesis ma  wrap garne ra feri aarko parwnthesis use 
+const coffe=(()=>{
+    console.log("lets have some coffee during the works");
+    
+})();
+// or 
+
+// ? when having parameters
+(function increment(value){
+     console.log(value +2);
+     
+})(12);
+
+
+//? when have to return the values 
+const value2 = (function (x) {
+  return x * 2;
+})(5);
+
+console.log(value2); // 10
 
