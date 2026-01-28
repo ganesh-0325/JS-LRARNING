@@ -62,3 +62,37 @@
 // console.log(Array.name);
 // Array("ganesh");
 
+
+
+//! arrofunction  and this 
+
+const studentInfo={
+    username:"ram bahadur",
+    section:"A21",
+    greeting:function(){
+        console.log(` Hello ${this.username},Welcome to you in our college.`);
+       
+        
+        
+    }
+
+    
+}
+studentInfo.greeting();
+
+studentInfo.username="Ganesh Raj";
+// const result =studentInfo.greeting();
+
+
+const  result =()=>{
+    const name =" ganesh rajpathak";
+    console.log(`hello ${name}`);
+    console.log(this);   //* this ue garda just yek empty arrray dinx 
+    
+    
+
+}
+result();
+
+
+
