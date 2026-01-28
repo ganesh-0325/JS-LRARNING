@@ -1,0 +1,373 @@
+1. Introduction to DOM
+
+DOM (Document Object Model) is a programming interface that represents an HTML document as a tree of objects.
+It allows JavaScript to access, modify, add, and delete HTML elements dynamically.
+
+👉 Every HTML element becomes a node (object) in the DOM.
+
+2. DOM Tree Structure
+
+The document is represented in a hierarchical tree structure
+
+Each HTML tag is a node
+
+Nodes are related as parent, child, and sibling
+
+Example hierarchy:
+
+Document
+
+HTML
+
+Head
+
+Body
+
+h1
+
+p
+
+div
+
+3. Purpose of DOM Manipulation
+
+DOM manipulation is used to:
+
+Change content dynamically
+
+Modify styles
+
+Handle user interactions
+
+Create interactive web pages
+
+Update UI without reloading the page
+
+4. Accessing DOM Elements
+
+JavaScript provides methods to select elements from the DOM.
+
+Common Methods:
+
+getElementById() → selects element by ID
+
+getElementsByClassName() → selects by class
+
+getElementsByTagName() → selects by tag
+
+querySelector() → selects first matching CSS selector
+
+querySelectorAll() → selects all matching elements
+
+5. Reading and Changing Content
+
+DOM allows modification of element content.
+
+textContent → changes only text
+
+innerText → visible text only
+
+innerHTML → changes HTML content (can include tags)
+
+⚠️ innerHTML can cause security issues if misused.
+
+6. Manipulating Attributes
+
+Attributes of elements can be:
+
+Read
+
+Modified
+
+Removed
+
+Common operations:
+
+Get attribute value
+
+Set new attribute value
+
+Remove an attribute
+
+7. Styling Elements Using DOM
+Inline Styling
+
+Styles can be changed using .style property
+
+Example: color, background, font size
+
+Using CSS Classes (Recommended)
+
+Add class
+
+Remove class
+
+Toggle class
+
+Check if class exists
+
+This approach is cleaner and more maintainable.
+
+8. Creating and Adding Elements
+
+DOM allows creation of new elements dynamically.
+
+Steps:
+
+Create an element
+
+Add content to it
+
+Insert it into the DOM
+
+Common insertion methods:
+
+Append at end
+
+Insert before another element
+
+9. Removing Elements
+
+Elements can be removed from the DOM:
+
+Remove a specific child
+
+Remove an element directly
+
+Used for deleting items, clearing lists, etc.
+
+10. DOM Events
+
+Events are actions performed by the user.
+
+Common Events:
+
+click
+
+submit
+
+change
+
+keydown
+
+mouseover
+
+Events allow JavaScript to respond to user actions.
+
+11. Event Handling
+
+Event handling is done using:
+
+Event listeners
+
+Advantages:
+
+Multiple events on same element
+
+Cleaner code
+
+Separation of HTML and JavaScript
+
+12. Event Object
+
+When an event occurs, JavaScript creates an event object that contains:
+
+Target element
+
+Event type
+
+Mouse or keyboard information
+
+13. Event Bubbling and Capturing
+
+Bubbling: Event flows from child → parent
+
+Capturing: Event flows from parent → child
+
+By default, events use bubbling.
+
+14. Prevent Default Behavior
+
+Some elements have default actions (form submit, link navigation).
+
+JavaScript can stop this behavior using:
+
+Prevent default method
+
+15. DOM Traversal
+
+Traversal means moving through DOM elements.
+
+Types:
+
+Parent access
+
+Child access
+
+Sibling access
+
+Used to navigate between related elements.
+
+16. DOM vs BOM
+DOM	BOM
+Controls HTML document	Controls browser
+Uses document object	Uses window object
+Page manipulation	Browser features
+17. Advantages of DOM Manipulation
+
+Dynamic content update
+
+Interactive user experience
+
+No page reload required
+
+Better performance
+
+18. Common Mistakes
+
+Overusing innerHTML
+
+Manipulating DOM repeatedly inside loops
+
+Not waiting for DOM to load
+
+Inline event handlers
+
+19. Best Practices
+
+Use querySelector
+
+Modify classes instead of inline styles
+
+Use event delegation
+
+Keep JavaScript separate from HTML
+
+20. Exam-Ready Definition
+
+DOM Manipulation is the process of dynamically accessing, modifying, creating, or deleting HTML elements using JavaScript.
+
+
+
+
+🔑 Why do we need innerText, textContent, and innerHTML?
+Short core answer
+
+They exist because we sometimes need only text, sometimes visible text, and sometimes HTML structure.
+
+One property cannot safely handle all cases.
+
+1️⃣ innerHTML — when you need HTML structure
+Purpose
+
+Read or write HTML markup
+
+Create elements dynamically
+
+Example
+div.innerHTML = "<b>Hello</b>";
+
+Result
+
+👉 Text becomes bold
+
+Why needed?
+
+To insert tags (<b>, <p>, <span>)
+
+To build UI dynamically
+
+⚠️ Risk:
+
+Can inject malicious HTML (XSS)
+
+2️⃣ textContent — when you need raw text (fast & safe)
+Purpose
+
+Work with pure text only
+
+Ignore styling and visibility
+
+Example
+div.textContent = "<b>Hello</b>";
+
+Result
+
+👉 Displays literally: <b>Hello</b>
+
+Why needed?
+
+Security (prevents HTML injection)
+
+Better performance
+
+Reads hidden text too
+
+✔ Preferred for:
+
+User input
+
+Data rendering
+
+Security-sensitive apps
+
+3️⃣ innerText — when you need visible text only
+Purpose
+
+Read/write what the user actually sees
+
+Example
+div.innerText = "Hello";
+
+Special behavior:
+
+Respects CSS (display: none)
+
+Triggers reflow (slower)
+
+Why needed?
+
+UI-based logic
+
+Screen-visible text checks
+
+🧠 Key Differences (Why one cannot replace all)
+Feature	innerHTML	textContent	innerText
+Parses HTML	✅	❌	❌
+Returns hidden text	✅	✅	❌
+Respects CSS	❌	❌	✅
+Safe from XSS	❌	✅	✅
+Performance	Medium	Fastest	Slow
+Creates elements	✅	❌	❌
+🎯 Real-world Use Cases
+🔹 Use innerHTML when:
+
+Building components dynamically
+
+You trust the content
+
+🔹 Use textContent when:
+
+Showing user data
+
+Avoiding security issues
+
+Performance matters
+
+🔹 Use innerText when:
+
+Checking what is visible
+
+UI testing
+
+Accessibility logic
+
+⚠️ Why not just use innerHTML everywhere?
+
+Because:
+
+❌ Security risks
+
+❌ Performance cost
+
+❌ Accidental HTML execution
