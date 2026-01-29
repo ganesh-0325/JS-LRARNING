@@ -405,3 +405,40 @@ container.appendChild(img);
 
 
 
+What Is the Difference Between innerText, textContent, and innerHTML?
+
+innerText represents the visible text content of the HTML element and its descendants. This property doesn't include hidden text or HTML tags, only rendered text.
+
+
+                                   <div id="container">
+                                   <p>Hello, World!</p>
+                                   <p>I'm learning JavaScript</p>
+                                   </div>
+                                   <script src="index.js"></script>
+                                   const container = document.getElementById("container");
+                                   console.log(container.innerText);
+
+Hello, World!
+I'm learning JavaScript
+
+
+How Do You Add and Remove Nodes from the DOM with appendChild() and removeChild()?
+
+The appendChild() method is used to add a node to the end of the list of children of a specified parent node
+                                   <ul id="desserts">
+                                   <li>Cake</li>
+                                   <li>Pie</li>
+                                   </ul>                           
+
+To access that list inside the JavaScript file, we can use the getElementById() method:
+Then we need to create a new list item element using the createElement() method:
+
+                                   const dessertsList = document.getElementById("desserts");
+                                   const listItem = document.createElement("li");
+he following code will create a new list item element and store it in a variable called listItem.
+
+                     const dessertsList = document.getElementById("desserts");
+                     const listItem = document.createElement("li");
+
+   
+                     dessertsList.appendChild(listItem);
