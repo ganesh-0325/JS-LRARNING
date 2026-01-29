@@ -102,33 +102,97 @@ const array2 = ["apple", "banana", "orange", "mango", "grape"];
 const result2 = [...array2].sort(() => 0.5 - Math.random()).slice(0, 3);
 console.log(result);
 
-// Create an array with duplicate values and remove all duplicate elements.
+/* 
+1. Create an array with duplicate values and remove all duplicate elements.
+*/
+let a1 = [1,2,3,2,4,1];
+console.log([...new Set(a1)]);
 
+/*
+2. Create an array and display only the duplicate elements.
+*/
+let a2 = [1,2,3,2,4,1];
+let dup = a2.filter((v,i)=>a2.indexOf(v)!==i);
+console.log([...new Set(dup)]);
 
-// Create an array and display only the duplicate elements.
+/*
+3. Create an array and count the frequency of each element.
+*/
+let a3 = ["a","b","a","c","b"];
+let freq = {};
+for(let x of a3){ freq[x]=(freq[x]||0)+1; }
+console.log(freq);
 
-// Create an array and count the frequency of each element.
+/*
+4. Create an array and reverse its elements without using reverse().
+*/
+let a4 = [1,2,3,4];
+let rev = [];
+for(let i=a4.length-1;i>=0;i--){ rev.push(a4[i]); }
+console.log(rev);
 
-// Create an array and reverse its elements without using the reverse() method.
+/*
+5. Create an array and find the largest and smallest elements.
+*/
+let a5 = [10,4,25,2,8];
+let max=a5[0], min=a5[0];
+for(let x of a5){ if(x>max)max=x; if(x<min)min=x; }
+console.log("Max:",max,"Min:",min);
 
-// Create an array and find the largest and smallest elements.
+/*
+6. Create an array and shuffle all elements randomly.
+*/
+let a6 = [1,2,3,4,5];
+a6.sort(()=>Math.random()-0.5);
+console.log(a6);
 
-// Create an array and shuffle all elements randomly.
+/*
+7. Create an array and check whether all elements are unique.
+*/
+let a7 = [1,2,3,4];
+console.log(new Set(a7).size===a7.length);
 
-// Create an array and check whether all elements are unique.
+/*
+8. Create an array and remove a specified element.
+*/
+let a8 = [1,2,3,4];
+let rem = 3;
+console.log(a8.filter(x=>x!==rem));
 
-// Create an array and remove a specified element from it.
+/*
+9. Create an array and find the second largest element.
+*/
+let a9 = [10,5,20,8];
+let u = [...new Set(a9)].sort((a,b)=>b-a);
+console.log(u[1]);
 
-// Create an array and find the second largest element.
+/*
+10. Create two arrays, merge them, and remove duplicate elements.
+*/
+let a10=[1,2,3], b10=[2,3,4];
+console.log([...new Set([...a10,...b10])]);
 
-// Create two arrays, merge them, and remove duplicate elements.
+/*
+11. Create an array and rotate its elements by k positions.
+*/
+let a11=[1,2,3,4,5], k=2;
+k%=a11.length;
+console.log(a11.slice(-k).concat(a11.slice(0,-k)));
 
-// Create an array and rotate its elements by k positions.
+/*
+12. Create an array and check whether two arrays are equal.
+*/
+let x=[1,2,3], y=[1,2,3];
+console.log(x.length===y.length && x.every((v,i)=>v===y[i]));
 
-// Create an array and check whether two arrays are equal.
+/*
+13. Create an array and print elements using random indexes.
+*/
+let a13=["A","B","C","D"];
+for(let i=0;i<a13.length;i++){
+  console.log(a13[Math.floor(Math.random()*a13.length)]);
+}
 
-// Create an array and print elements using random indexes.
-    
 
     
     
